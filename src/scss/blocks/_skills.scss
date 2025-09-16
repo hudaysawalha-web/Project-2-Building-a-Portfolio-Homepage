@@ -1,0 +1,191 @@
+@use '../utils/utils' as *;
+@use '../utils/variables'; 
+
+.skills {
+  padding: $spacing-xl 0;
+  overflow: hidden;
+  
+  &__container {
+    position: relative;
+  }
+
+  &__grid {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    margin-top: $spacing-lg;
+  }
+
+  &__row {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: $spacing-md;
+    padding: $spacing-sm;
+    scrollbar-width: thin; // Firefox
+    scrollbar-color: rgba($primary-color, 0.3) transparent;
+    
+    // Webkit browsers (Chrome, Safari)
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba($primary-color, 0.3);
+      border-radius: 3px;
+    }
+    
+    // Hide scrollbar on mobile
+    @include respond-to(sm) {
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      scrollbar-width: none; // Firefox
+    }
+  }
+
+  // Both rows now have equal card sizing
+  &__row {
+    .skill-card {
+      scroll-snap-align: start;
+      flex: 0 0 calc(33.333% - $spacing-md);
+      
+      @include respond-to(md) {
+        flex: 0 0 calc(50% - $spacing-md);
+      }
+      
+      @include respond-to(sm) {
+        flex: 0 0 85%;
+      }
+    }
+  }
+}
+
+.skill-card {
+  background: white;
+  padding: $spacing-xs;
+  border-radius: $border-radius;
+  text-align: center;
+  transition: all $transition-speed;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  &:hover {
+    @include card-hover;
+    border-color: rgba(20, 40, 56, 0.1);
+   
+  }
+
+  &__icon {
+    font-size: 3.2rem;
+    margin-bottom: $spacing-lg;
+    color: $primary-color;
+    transition: all $transition-speed;
+    
+    .skill-card:hover & {
+      transform: scale(1.1);
+      color: $accent-color;
+    }
+  }
+
+  &__title {
+    margin-bottom: $spacing-sm;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  &__description {
+    font-size: 0.95rem;
+    color: $text-light;
+    line-height: 1.4;
+  }
+}
+
+// Navigation indicators for scroll snap
+.skills__nav {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-xs;
+  margin-top: $spacing-md;
+  
+  &-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba($primary-color, 0.2);
+    transition: all $transition-speed;
+    cursor: pointer;
+    
+    &.active {
+      background: $primary-color;
+      transform: scale(1.2);
+    }
+  }
+}
+
+// Animation for scroll snap
+@keyframes snapFocus {
+  0% { transform: scale(0.95); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.skill-card {
+  &:focus {
+    animation: snapFocus 0.3s ease;
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+  }
+}
+
+// Responsive adjustments
+@include respond-to(md) {
+  .skills {
+    &__row {
+      gap: $spacing-sm;
+    }
+  }
+  
+  .skill-card {
+    padding: $spacing-sm;
+    min-height: 180px;
+    
+    &__icon {
+      font-size: 2.8rem;
+      margin-bottom: $spacing-md;
+    }
+    
+    &__title {
+      font-size: 1.2rem;
+    }
+    
+    &__description {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@include respond-to(sm) {
+  .skill-card {
+    min-height: 160px;
+    padding: $spacing-sm;
+    
+    &__icon {
+      font-size: 2.5rem;
+      margin-bottom: $spacing-sm;
+    }
+  }
+  
+  .skills__nav {
+    display: none; // Hide indicators on mobile
+  }
+}

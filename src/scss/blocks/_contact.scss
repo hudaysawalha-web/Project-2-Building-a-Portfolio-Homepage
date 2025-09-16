@@ -1,0 +1,46 @@
+@use '../utils/utils' as *;
+
+.contact {
+  padding: $spacing-xl 0;
+  
+  &__content {
+    display: flex;
+    justify-content: center;
+    margin-top: $spacing-lg;
+  }
+
+  &__social {
+    display: flex;
+    gap: $spacing-md;
+    margin-top: $spacing-md;
+    justify-content: center;
+  }
+
+  &__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: $light-color;
+    color: $primary-color;
+    font-size: 1.6rem;
+    transition: all $transition-speed;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    text-decoration: none;
+    
+    &:hover {
+      background: $primary-color;
+      color: white;
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    @include respond-to(sm) {
+      width: 48px;
+      height: 48px;
+      font-size: 1.4rem;
+    }
+  }
+}

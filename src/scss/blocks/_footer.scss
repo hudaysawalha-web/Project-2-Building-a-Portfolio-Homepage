@@ -1,0 +1,38 @@
+@use '../utils/utils' as *;
+@use '../utils/variables'; 
+
+
+.footer {
+  text-align: center;
+  padding: $spacing-xl 0;
+  background: $light-color;
+  color: $text-light;
+  font-size: 0.95rem;
+  
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-md;
+  }
+
+  &__copyright {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+  }
+
+
+  &__link {
+    color: $text-light;
+    text-decoration: none;
+    transition: all $transition-speed;
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}

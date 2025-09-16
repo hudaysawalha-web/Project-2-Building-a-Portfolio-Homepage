@@ -1,0 +1,131 @@
+@use '../utils/utils' as *;
+@use '../utils/variables'; 
+
+
+.hero {
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: $header-height;
+  position: relative;
+  overflow: hidden;
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+  }
+
+  &__blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    @include backdrop-blur;
+    z-index: -1;
+  }
+
+  &__container {
+    width: 100%;
+  }
+
+  &__content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  &__title {
+    font-size: 4rem;
+    color: $primary-color;
+    margin-bottom: $spacing-lg;
+    
+    @include respond-to(md) {
+      font-size: 3rem;
+    }
+    
+    @include respond-to(sm) {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.5rem;
+    margin-bottom: $spacing-xl;
+    color: $text-color;
+    position: relative;
+    display: inline-block;
+    
+    i:first-child {
+      margin-right: $spacing-xs;
+      opacity: 0.7;
+    }
+    
+    i:last-child {
+      margin-left: $spacing-xs;
+      opacity: 0.7;
+    }
+  }
+
+  &__buttons {
+    margin-top: $spacing-xl;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+    
+    @include respond-to(sm) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__scroll {
+    position: absolute;
+    bottom: $spacing-md;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    a {
+      color: $primary-color;
+      font-size: 1.8rem;
+      opacity: 0.8;
+      transition: all $transition-speed;
+      
+      &:hover {
+        opacity: 1;
+        color: $accent-color;
+      }
+    }
+  }
+  
+  
+  
+  
+}
+
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

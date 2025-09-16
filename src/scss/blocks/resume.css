@@ -1,0 +1,113 @@
+.resume {
+  padding: 3.5rem 0;
+  background-color: #f8f9fa;
+}
+.resume__layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .resume__layout {
+    grid-template-columns: 1fr;
+  }
+}
+.resume__sidebar {
+  position: sticky;
+  top: 80px;
+  align-self: start;
+}
+@media (max-width: 768px) {
+  .resume__sidebar {
+    position: static;
+    margin-bottom: 3.5rem;
+  }
+}
+.resume__download-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.resume__download-card:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+.resume__download-card i {
+  color: #faa8b8;
+  margin-bottom: 1.5rem;
+}
+.resume__download-card h3 {
+  margin: 1.5rem 0;
+  color: #142838;
+  font-size: 1.2rem;
+}
+.resume__download-card p {
+  color: #6c757d;
+  margin-bottom: 2.5rem;
+  font-size: 0.95rem;
+}
+.resume__download-card .btn {
+  width: 100%;
+  padding: 0;
+  font-size: 1rem;
+}
+.resume__preview {
+  background: white;
+  padding: 3.5rem;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  font-family: "Georgia", serif;
+  line-height: 1.7;
+}
+@media (max-width: 576px) {
+  .resume__preview {
+    padding: 2.5rem;
+  }
+}
+.resume__section {
+  margin-bottom: 3.5rem;
+}
+.resume__section h2 {
+  color: #142838;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #849a9f;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.3rem;
+}
+.resume__item {
+  margin-bottom: 1.5rem;
+}
+.resume__item h3 {
+  margin: 0 0 0.3rem 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+.resume__item-date {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  font-style: italic;
+}
+.resume__item p {
+  margin: 0;
+  color: #333;
+  font-size: 0.95rem;
+}
+.resume__note {
+  background: rgba(250, 168, 184, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 3.5rem;
+  text-align: center;
+  font-style: italic;
+  color: #6c757d;
+}
+.resume__note em {
+  font-weight: 500;
+}/*# sourceMappingURL=resume.css.map */

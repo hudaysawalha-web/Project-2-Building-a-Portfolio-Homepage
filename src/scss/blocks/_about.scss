@@ -1,0 +1,203 @@
+@use '../utils/utils' as *;
+@use '../utils/variables';
+
+.about {
+  padding: $spacing-xl 0;
+  position: relative;
+  overflow: hidden;
+
+  /* Floating Elements for About Section */
+  &__decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+
+    @include respond-to(md) {
+      /* Reduce number of elements on smaller screens */
+
+      display: none;
+
+    }
+  }
+
+  &__code {
+    position: absolute;
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    animation: floatCodeAbout 18s ease-in-out infinite;
+    opacity: 0.7;
+    color: rgba($primary-color, 0.2);
+
+      // Disable animations on smaller devices
+    @include respond-to(md) {
+      animation: none;
+    }
+
+    /* Different sizes and positions for visual interest */
+    &:nth-child(1) {
+      top: 20%;
+      left: 5%;
+      font-size: 2.4rem;
+      animation-delay: 0s;
+      color: rgba($accent-color, 0.25);
+
+          // Hide on small devices
+      @include respond-to(sm) {
+        display: none;
+      }
+    }
+
+    &:nth-child(2) {
+      top: 70%;
+      right: 5%;
+      left: auto;
+      animation-delay: 0s;
+      font-size: 2rem;
+      color: rgba($primary-color, 0.2);
+
+       
+      @include respond-to(sm) {
+        display: none;
+      }
+    }
+
+    &:nth-child(3) {
+      top: 50%;
+      left: 50%;
+      animation-delay: 0s;
+      font-size: 1.8rem;
+      color: rgba($accent-color, 0.3);
+
+      @include respond-to(sm) {
+        display: none;
+      }
+    }
+
+    &:nth-child(4) {
+      top: 13%;
+      right: 10%;
+      left: auto;
+      animation-delay: 9s;
+      font-size: 2.2rem;
+      color: rgba($primary-color, 0.25);
+
+      @include respond-to(sm) {
+        display: none;
+      }
+    }
+
+    &:nth-child(5) {
+      bottom: 10%;
+      left: 9%;
+      animation-delay: 6s;
+      font-size: 1.6rem;
+      color: rgba($primary-color, 0.2);
+
+      @include respond-to(sm) {
+        display: none;
+      }
+    }
+
+
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xl;
+    position: relative;
+    z-index: 1;
+
+    @include respond-to(lg) {
+      flex-direction: column;
+      gap: $spacing-lg;
+    }
+  }
+
+  &__text {
+    flex: 1;
+  }
+
+  &__paragraph {
+    margin-bottom: $spacing-lg;
+    position: relative;
+    padding-left: $spacing-lg;
+
+    i {
+      position: absolute;
+      left: 0;
+      top: 0.3rem;
+      color: $accent-color;
+      font-size: 1.2rem;
+    }
+  }
+
+  &__image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  &__img {
+    width: 100%;
+    max-width: 380px;
+    border-radius: $border-radius;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all $transition-speed;
+    position: relative;
+    z-index: 1;
+
+    &:hover {
+      transform: scale(1.02) translateY(-5px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    @include respond-to(lg) {
+      max-width: 320px;
+    }
+  }
+
+  &__actions {
+    margin-top: $spacing-lg;
+    text-align: center;
+
+    @include respond-to(md) {
+      text-align: left;
+    }
+  }
+}
+
+/* Animations for About Section Floating Elements */
+@keyframes floatCodeAbout {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate(15px, -20px) rotate(4deg);
+  }
+
+  50% {
+    transform: translate(-12px, 15px) rotate(-3deg);
+  }
+
+  75% {
+    transform: translate(10px, 18px) rotate(2deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about {
+    &__code {
+      animation: none;
+    }
+  }
+}

@@ -1,15 +1,15 @@
 {
-  "name": "huda-portfolio",
+  "name": "huda-sawalha-portfolio",
   "version": "1.0.0",
   "description": "Huda Sawalha's Front-End Developer Portfolio",
   "main": "index.html",
   "scripts": {
-    "sass-build": "sass scss:css --style=compressed"
+    "sass": "sass src/scss/main.scss dist/main.css --watch --style=compressed",
+    "build": "sass src/scss/main.scss dist/main.css --style=compressed"
   },
-  "keywords": ["portfolio", "frontend", "web development"],
-  "author": "Huda Sawalha",
-  "license": "MIT",
   "devDependencies": {
-    "sass": "^1.69.5"
-  }
+    "sass": "^1.66.1"
+  },
+  "author": "Huda Sawalha",
+  "license": "MIT"
 }

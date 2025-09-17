@@ -4,7 +4,7 @@
   "description": "Huda Sawalha's Front-End Developer Portfolio",
   "main": "index.html",
   "scripts": {
-    "build": "sass scss:css --style=compressed"
+    "sass-build": "sass scss:css --style=compressed"
   },
   "keywords": ["portfolio", "frontend", "web development"],
   "author": "Huda Sawalha",

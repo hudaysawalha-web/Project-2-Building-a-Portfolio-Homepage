@@ -4,13 +4,12 @@
   "description": "Huda Sawalha's Front-End Developer Portfolio",
   "main": "index.html",
   "scripts": {
-    "sass": "sass scss:css --watch",
-    "sass-build": "sass scss:css --style=compressed"
+    "build": "sass scss:css --style=compressed"
   },
   "keywords": ["portfolio", "frontend", "web development"],
   "author": "Huda Sawalha",
   "license": "MIT",
   "devDependencies": {
-    "sass": "^1.66.1"
+    "sass": "^1.69.5"
   }
 }

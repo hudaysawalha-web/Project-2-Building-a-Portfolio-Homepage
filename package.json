@@ -5,10 +5,11 @@
   "main": "index.html",
   "scripts": {
     "sass": "sass src/scss/main.scss dist/main.css --watch --style=compressed",
-    "build": "sass src/scss/main.scss dist/main.css --style=compressed"
+    "build": "sass src/scss/main.scss dist/main.css --style=compressed",
+    "sass-build": "sass src/scss:dist --style=compressed"
   },
   "devDependencies": {
-    "sass": "^1.66.1"
+    "sass": "^1.92.1"
   },
   "author": "Huda Sawalha",
   "license": "MIT"

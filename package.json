@@ -9,7 +9,7 @@
     "sass-build": "sass src/scss:dist --style=compressed"
   },
   "devDependencies": {
-    "sass": "^1.92.1"
+    "sass": "^1.98.0"
   },
   "author": "Huda Sawalha",
   "license": "MIT"
